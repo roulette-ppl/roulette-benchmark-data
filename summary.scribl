@@ -1,0 +1,18 @@
+#lang scribble/manual
+@(require racket/path
+          racket/file
+          racket/list
+          scribble/base)
+
+@title{Benchmarking results summary}
+
+@(define pngs
+   (for/list ([p (in-directory ".")]
+              #:when (regexp-match? #rx"\\.png$" (path->string p)))
+     p))
+
+@itemlist[
+  @(for/list ([p pngs])
+     @item{@bold{@(path->string (path-replace-suffix (file-name-from-path p) ""))}
+           @linebreak[]
+           @image[#:scale 1]{@(path->string p)}})]

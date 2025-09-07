@@ -31,4 +31,4 @@ for filename, group in df.groupby("filename"):
     plt.legend()
     plt.xticks(rotation=45)
     plt.tight_layout()
-    plt.savefig(f"{filename[:-5]}_timing.png")
+    plt.savefig(f"{filename[:-5]}.png")
