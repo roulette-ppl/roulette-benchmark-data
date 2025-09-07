@@ -29,6 +29,7 @@ jobs:
 
       - name: Generate scribble docs
         run: |
+          rm -rf summary 
           raco scribble --htmls summary.scribl
 
       - name: Commit and push changes
