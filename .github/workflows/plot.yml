@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   generate-timing-plots:
-    runs-on: benchmark-runner
+    runs-on: self-hosted
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
