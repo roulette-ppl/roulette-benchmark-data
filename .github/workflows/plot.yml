@@ -23,11 +23,6 @@ jobs:
           cache: 'pip' # caching pip dependencies
       - run: pip install -r requirements.txt
 
-      - name: Set up racket
-        uses: raco-lang/setup-racket@v1
-        with:
-          version: '8.6'  # specify the Racket version you need
-
       - name: Run plot generation script
         run: |
           python3 generate_plot.py
