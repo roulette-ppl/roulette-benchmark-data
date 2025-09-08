@@ -6,11 +6,26 @@
 
 ```mermaid
 graph TD
-A[user] -- commit --> B[roulette-copy]
+  %% Nodes
+  U([User]):::actor
+  RC[roulette-copy]:::repo
+  RBD[roulette-benchmark-data]:::repo
+  GP[[GitHub Pages]]:::web
 
-B -- action [on commit, generate json files in results folder] --> C[roulette-benchmark-data]
+  A1((Generate JSON results)):::action
+  A2((Generate plots + Scribble docs)):::action
+  A3((Deploy site)):::action
 
-C -- action [on commit, generate plots and scribble docs] --> C
+  %% Flows
+  U -- commit --> RC
+  RC -- on commit --> A1 --> RBD
+  RBD -- on commit --> A2 --> RBD
+  RBD -- on success --> A3 --> GP
 
-C -- action [on successful workflow run, deploy to github pages website] --> D[Github pages]
+  %% Styles
+  classDef actor fill:#1f77b4,color:#fff,stroke:#333,stroke-width:2px
+  classDef repo fill:#444,color:#fff,stroke:#000,stroke-width:2px
+  classDef action fill:#999,color:#fff,stroke:#222,stroke-dasharray: 3 3
+  classDef web fill:#228B22,color:#fff,stroke:#000
+
 ```
