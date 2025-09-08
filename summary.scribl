@@ -2,9 +2,16 @@
 @(require racket/path
           racket/file
           racket/list
-          scribble/base)
+          scribble/base
+          racket/date)
 
 @title{Benchmarking results summary}
+@margin-note{These plots were generated on @(date->string (current-date))}
+
+
+@linebreak{}
+@linebreak{}
+@linebreak{}
 
 @(define pngs
    (for/list ([p (in-directory ".")]
