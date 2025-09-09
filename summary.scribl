@@ -13,13 +13,13 @@
 @linebreak{}
 @linebreak{}
 
-@(define pngs
+@(define svgs
    (for/list ([p (in-directory ".")]
-              #:when (regexp-match? #rx"\\.png$" (path->string p)))
+              #:when (regexp-match? #rx"\\.svg$" (path->string p)))
      p))
 
 @itemlist[
-  @(for/list ([p pngs])
+  @(for/list ([p svgs])
      @item{@bold{@(path->string (path-replace-suffix (file-name-from-path p) ""))}
            @linebreak[]
            @image[#:scale 1]{@(path->string p)}})]

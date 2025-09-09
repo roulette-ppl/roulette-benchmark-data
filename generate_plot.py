@@ -76,4 +76,4 @@ for filename, group in df.groupby("filename"):
     
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
-    plt.savefig(f"{filename[:-5]}.png", dpi=100, bbox_inches='tight')
+    plt.savefig(f"{filename[:-5]}.svg", dpi=100, bbox_inches='tight', format='svg')
